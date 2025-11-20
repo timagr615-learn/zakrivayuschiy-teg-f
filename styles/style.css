@@ -41,19 +41,18 @@
     align-items: center;
     justify-content: center;
 
-    height: clamp(375px, 100vw, 700px);
+    padding-block: clamp(122px, calc(0.00751 * 100vw + 119.18px), 130px);
     margin-block-start: 98px;
     margin-block-end: 96px;
-    max-height: 372px;
     text-transform: uppercase;
 }
 
 .header__title {
-    font-size: 65px;
+    font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
 .header__subtitle {
-    font-size: 23px;
+    font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
 .card__list {
@@ -70,10 +69,11 @@
 
 .card__list-item-title {
     font-variation-settings: 'wght' var(--font-weight-card-title);
-    letter-spacing: 0;
-    padding-inline-start: 10px;
-    padding-block-start: 5px;
-    min-height: 29px;
+    padding-inline: 10px;
+    padding-block-start: 4px;
+    padding-block-end: 3px;
+    font-size: 18px;
+    border-block-end: 2px solid var(--border-color);
 }
 
 .card__list-item-image-container {
@@ -124,24 +124,25 @@
     flex-direction: column;
     gap: 25px;
     padding-block-start: 25px;
-    padding-block-end: 22px;
+    padding-block-end: 23px;
     padding-inline: 25px;
     font-size: 18px;
+    line-height: 21px;
 }
 
 .card__buttons {
     display: flex;
     flex-direction: row;
     align-self: end;
-    gap: 9px;
+    gap: 5px;
 }
 
 .card__icon-button {
     display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     border: 2px solid transparent;
     transition: border-color 0.3s ease;
 }
@@ -162,7 +163,7 @@
     font-family: var(--font-accent), sans-serif;
     font-size: 14px;
     border: var(--border-width) solid var(--border-color);
-    height: 38px;
+    min-height: 38px;
     width: 130px;
     cursor: pointer;
 }
@@ -261,7 +262,13 @@
     mix-blend-mode: difference;
 }
 
-.footer__button {
+.save-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.save__button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -277,7 +284,8 @@
 
 .modal[open] {
     display: flex;
-
+    opacity: 0.5;
+    font-size: 14px;
     flex-direction: column;
     padding-inline: 30px;
     padding-block: 30px;
@@ -286,7 +294,7 @@
 }
 
 .modal[open]::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .modal-container {
@@ -301,7 +309,6 @@
 
 .button-modal {
     min-height: 38px;
-
 }
 
 .save-icon {
@@ -345,24 +352,11 @@
 
 
 @media (width <= 375px) {
-
-    .header {
-        max-height: 327px;
-        margin-block-end: 98px;
-    }
-    .header__title {
-        font-size: 49px;
-    }
-
-    .header__subtitle {
-        font-size: 14px;
-    }
-
     .card__list {
         gap: 48px;
     }
 
-    .footer__button {
+    .save__button {
         flex-direction: column;
         padding-block: 17px;
     }
@@ -370,5 +364,9 @@
     .save {
         width: 28px;
         height: 28px;
+    }
+
+    .modal[open] {
+        padding-inline: 40px;
     }
 }

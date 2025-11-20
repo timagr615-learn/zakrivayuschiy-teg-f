@@ -284,7 +284,6 @@
 
 .modal[open] {
     display: flex;
-    opacity: 0.5;
     font-size: 14px;
     flex-direction: column;
     padding-inline: 30px;
